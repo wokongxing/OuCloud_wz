@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.hw</groupId>
+  <artifactId>OuCloud_WZ</artifactId>
+  <version>1.0</version>
+  <inceptionYear>2008</inceptionYear>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <hadoop.version>2.6.0-cdh5.15.1</hadoop.version>
+    <scala.version>2.11.8</scala.version>
+    <spark.version>2.3.0</spark.version>
+<!--    <es.version>7.5.1</es.version>-->
+    <es.version>7.4.0</es.version>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-core_2.11</artifactId>
+      <version>${spark.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-sql_2.11</artifactId>
+      <version>${spark.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-client</artifactId>
+      <version>${hadoop.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala.version}</version>
+    </dependency>
+    <!--config-->
+    <dependency>
+      <groupId>com.typesafe</groupId>
+      <artifactId>config</artifactId>
+      <version>1.2.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.47</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.2.11</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch-spark-20 -->
+    <dependency>
+      <groupId>org.elasticsearch</groupId>
+      <artifactId>elasticsearch-spark-20_2.11</artifactId>
+      <version>${es.version}</version>
+    </dependency>
+    <!--数据湖 delta-->
+    <dependency>
+      <groupId>io.delta</groupId>
+      <artifactId>delta-core_2.11</artifactId>
+      <version>0.5.0</version>
+    </dependency>
+
+  </dependencies>
+
+</project>
