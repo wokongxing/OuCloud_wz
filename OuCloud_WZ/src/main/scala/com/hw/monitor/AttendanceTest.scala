@@ -29,9 +29,7 @@ object AttendanceTest {
 
     kq_attendances.createOrReplaceTempView("kq_attendances")
 
-    val startdatetime = "-2"
-    val enddatetime = "-11"
-
+    val startdatetime = "0"
     val sql3 =
       s"""
         |
@@ -41,23 +39,23 @@ object AttendanceTest {
         |   direct,
         |   idcardno,
         |   full_name,
-        |   mobile,
+        |   ifnull(mobile,"无") mobile,
         |   tid,
         |   record_time,
-        |   insert_time,
+        |   ifnull(insert_time,record_time) insert_time,
         |   equp_name,
         |   photo_path,
-        |   app_key,
-        |   year(record_time) date_year,
-        |   month(record_time) date_month,
+        |   ifnull(app_key,'无') app_key,
         |   date_trunc('MM',add_months(now(),${startdatetime}))
         |FROM
         |   kq_attendances
         |where idcardno is not null
-        |and record_time >= date_trunc('MM',add_months(now(),${startdatetime}))
+        |and insert_time is null
+        |and record_time >=  date_trunc('MM',add_months(now(),${startdatetime}))
         |""".stripMargin
     val dataFrame = spark.sql(sql3)
     dataFrame.show(10)
+    dataFrame.printSchema()
 //
 //    val tableSchema = dataFrame.schema
 //    val columns =tableSchema.fields.map(x => x.name).mkString(",")

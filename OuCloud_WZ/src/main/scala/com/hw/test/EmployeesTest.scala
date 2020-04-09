@@ -38,7 +38,7 @@ object EmployeesTest {
     area_number_v1.createOrReplaceTempView("area_number_v1")
     area_number.createOrReplaceTempView("area_number")
     val dates = Array("2019-12-01","2020-01-01","2020-02-01")
-    val datetime ="-2"
+    val datetime ="0"
 
 //    var sql=
 //      s"""
@@ -61,6 +61,8 @@ object EmployeesTest {
            |   date_add(now(), -1),
            |    year(add_months(now(),${datetime})),
            |    month(add_months(now(),${datetime})),
+           |    year('2020-1-2'),
+           |    year(''),
            |    date_trunc('MM',add_months(now(),${datetime}))
            |FROM  area_number
            | where code=152121
